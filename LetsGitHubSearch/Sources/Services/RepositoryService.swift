@@ -9,6 +9,7 @@
 import Alamofire
 
 final class RepositoryService {
+  @discardableResult
   class func search(keyword: String, completionHandler: @escaping (Result<RepositorySearchResult>) -> Void) -> DataRequest {
     let url = "https://api.github.com/search/repositories"
     let parameters: Parameters = ["q": keyword]
