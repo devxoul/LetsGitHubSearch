@@ -11,6 +11,8 @@ import UIKit
 import Alamofire
 
 class SearchRepositoryViewController: UIViewController {
+  var repositoryService: RepositoryServiceProtocol!
+
   let searchController = UISearchController(searchResultsController: nil)
 
   @IBOutlet private(set) var tableView: UITableView!
@@ -43,7 +45,7 @@ extension SearchRepositoryViewController: UISearchBarDelegate {
     self.cancelPreviousSearchRequest()
     self.setLoading(true)
 
-    self.currentSearchRequest = RepositoryService.search(keyword: keyword) { [weak self] result in
+    self.currentSearchRequest = self.repositoryService.search(keyword: keyword) { [weak self] result in
       guard let self = self else { return }
       self.setLoading(false)
 
