@@ -10,15 +10,18 @@ import Alamofire
 
 struct AppDependency {
   let repositoryService: RepositoryServiceProtocol
+  let urlOpener: URLOpenerProtocol
 }
 
 extension AppDependency {
   static func resolve() -> AppDependency {
     let sessionManager = SessionManager.default
     let repositoryService = RepositoryService(sessionManager: sessionManager)
+    let urlOpener = UIApplication.shared
 
     return AppDependency(
-      repositoryService: repositoryService
+      repositoryService: repositoryService,
+      urlOpener: urlOpener
     )
   }
 }

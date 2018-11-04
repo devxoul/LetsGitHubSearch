@@ -12,6 +12,7 @@ import Alamofire
 
 class SearchRepositoryViewController: UIViewController {
   var repositoryService: RepositoryServiceProtocol!
+  var urlOpener: URLOpenerProtocol!
 
   let searchController = UISearchController(searchResultsController: nil)
 
@@ -103,5 +104,14 @@ extension SearchRepositoryViewController: UITableViewDataSource {
     formatter.numberStyle = .decimal
     guard let formattedCount = formatter.string(from: count as NSNumber) else { return nil }
     return "⭐️ \(formattedCount)"
+  }
+}
+
+extension SearchRepositoryViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let repository = self.repositories[indexPath.row]
+    let urlString = "https://github.com/\(repository.fullName)"
+    guard let url = URL(string: urlString) else { return }
+    self.urlOpener.open(url, options: [:], completionHandler: nil)
   }
 }

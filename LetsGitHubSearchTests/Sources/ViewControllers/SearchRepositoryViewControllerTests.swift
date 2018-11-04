@@ -11,16 +11,19 @@ import XCTest
 
 final class SearchRepositoryViewControllerTests: XCTestCase {
   private var repositoryService: RepositoryServiceStub!
+  private var urlOpener: URLOpenerStub!
   private var viewController: SearchRepositoryViewController!
 
   override func setUp() {
     super.setUp()
     self.repositoryService = RepositoryServiceStub()
+    self.urlOpener = URLOpenerStub()
 
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     let identifier = "SearchRepositoryViewController"
     self.viewController = storyboard.instantiateViewController(withIdentifier: identifier) as? SearchRepositoryViewController
     self.viewController.repositoryService = self.repositoryService
+    self.viewController.urlOpener = self.urlOpener
     self.viewController.loadViewIfNeeded()
   }
 
@@ -110,5 +113,27 @@ final class SearchRepositoryViewControllerTests: XCTestCase {
     let cell2 = self.viewController.tableView.cellForRow(at: IndexPath(row: 2, section: 0))
     XCTAssertEqual(cell2?.textLabel?.text, "cruisediary/ReactorKit3")
     XCTAssertEqual(cell2?.detailTextLabel?.text?.contains("543"), true)
+  }
+
+  func testTableView_openRepositoryWebPage_whenSelectItem() {
+    // given
+    let searchBar = self.viewController.searchController.searchBar
+    searchBar.text = "ReactorKit"
+    searchBar.delegate?.searchBarSearchButtonClicked?(searchBar)
+
+    let repositories = [
+      Repository(name: "ReactorKit1", fullName: "devxoul/ReactorKit1", stargazersCount: 1289),
+      Repository(name: "ReactorKit2", fullName: "younatics/ReactorKit2", stargazersCount: 987),
+      Repository(name: "ReactorKit3", fullName: "cruisediary/ReactorKit3", stargazersCount: 543),
+    ]
+    let searchResult = RepositorySearchResult(totalCount: 3, items: repositories)
+    self.repositoryService.searchParameters?.completionHandler(.success(searchResult))
+
+    // when
+    let tableView = self.viewController.tableView!
+    tableView.delegate?.tableView?(tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
+
+    // then
+    XCTAssertEqual(self.urlOpener.openParameters?.absoluteString, "https://github.com/devxoul/ReactorKit1")
   }
 }
