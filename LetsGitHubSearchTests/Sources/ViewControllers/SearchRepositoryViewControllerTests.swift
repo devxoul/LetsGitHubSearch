@@ -10,52 +10,49 @@ import XCTest
 @testable import LetsGitHubSearch
 
 final class SearchRepositoryViewControllerTests: XCTestCase {
-  func testSearchBar_whenSearchBarSearchButtonClicked_searchWithText() {
-    // given
-    let repositoryService = RepositoryServiceStub()
-    let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SearchRepositoryViewController") as! SearchRepositoryViewController
-    viewController.repositoryService = repositoryService
-    _ = viewController.view
+  private var repositoryService: RepositoryServiceStub!
+  private var viewController: SearchRepositoryViewController!
 
+  override func setUp() {
+    super.setUp()
+    self.repositoryService = RepositoryServiceStub()
+
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let identifier = "SearchRepositoryViewController"
+    self.viewController.repositoryService = self.repositoryService
+    self.viewController.loadViewIfNeeded()
+  }
+
+  func testSearchBar_whenSearchBarSearchButtonClicked_searchWithText() {
     // when
-    let searchBar = viewController.searchController.searchBar
+    let searchBar = self.viewController.searchController.searchBar
     searchBar.text = "ReactorKit"
     searchBar.delegate?.searchBarSearchButtonClicked?(searchBar)
 
     // then
-    XCTAssertEqual(repositoryService.searchParameters?.keyword, "ReactorKit")
+    XCTAssertEqual(self.repositoryService.searchParameters?.keyword, "ReactorKit")
   }
 
   func testTableView_isHidden_whileSearching() {
-    // given
-    let repositoryService = RepositoryServiceStub()
-    let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SearchRepositoryViewController") as! SearchRepositoryViewController
-    viewController.repositoryService = repositoryService
-    _ = viewController.view
-
     // when
-    let searchBar = viewController.searchController.searchBar
+    let searchBar = self.viewController.searchController.searchBar
     searchBar.text = "ReactorKit"
     searchBar.delegate?.searchBarSearchButtonClicked?(searchBar)
 
     // then
-    XCTAssertTrue(viewController.tableView.isHidden)
+    XCTAssertTrue(self.viewController.tableView.isHidden)
   }
 
   func testTableView_isVisible_afterSearching() {
     // given
-    let repositoryService = RepositoryServiceStub()
-    let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SearchRepositoryViewController") as! SearchRepositoryViewController
-    viewController.repositoryService = repositoryService
-    _ = viewController.view
-
-    // when
-    let searchBar = viewController.searchController.searchBar
+    let searchBar = self.viewController.searchController.searchBar
     searchBar.text = "ReactorKit"
     searchBar.delegate?.searchBarSearchButtonClicked?(searchBar)
-    repositoryService.searchParameters?.completionHandler(.failure(TestError()))
+
+    // when
+    self.repositoryService.searchParameters?.completionHandler(.failure(TestError()))
 
     // then
-    XCTAssertFalse(viewController.tableView.isHidden)
+    XCTAssertFalse(self.viewController.tableView.isHidden)
   }
 }
