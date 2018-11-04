@@ -10,11 +10,11 @@
 @testable import LetsGitHubSearch
 
 final class RepositoryServiceStub: RepositoryServiceProtocol {
-  var searchParameters: String?
+  var searchParameters: (keyword: String, completionHandler: (Result<RepositorySearchResult>) -> Void)?
 
   @discardableResult
   func search(keyword: String, completionHandler: @escaping (Result<RepositorySearchResult>) -> Void) -> DataRequest {
-    self.searchParameters = keyword
+    self.searchParameters = (keyword, completionHandler)
     return DataRequest(session: URLSession(), requestTask: .data(nil, nil))
   }
 }

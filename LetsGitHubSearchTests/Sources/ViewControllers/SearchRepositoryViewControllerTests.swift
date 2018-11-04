@@ -23,7 +23,7 @@ final class SearchRepositoryViewControllerTests: XCTestCase {
     searchBar.delegate?.searchBarSearchButtonClicked?(searchBar)
 
     // then
-    XCTAssertEqual(repositoryService.searchParameters, "ReactorKit")
+    XCTAssertEqual(repositoryService.searchParameters?.keyword, "ReactorKit")
   }
 
   func testTableView_isHidden_whileSearching() {
@@ -40,5 +40,22 @@ final class SearchRepositoryViewControllerTests: XCTestCase {
 
     // then
     XCTAssertTrue(viewController.tableView.isHidden)
+  }
+
+  func testTableView_isVisible_afterSearching() {
+    // given
+    let repositoryService = RepositoryServiceStub()
+    let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SearchRepositoryViewController") as! SearchRepositoryViewController
+    viewController.repositoryService = repositoryService
+    _ = viewController.view
+
+    // when
+    let searchBar = viewController.searchController.searchBar
+    searchBar.text = "ReactorKit"
+    searchBar.delegate?.searchBarSearchButtonClicked?(searchBar)
+    repositoryService.searchParameters?.completionHandler(.failure(TestError()))
+
+    // then
+    XCTAssertFalse(viewController.tableView.isHidden)
   }
 }
