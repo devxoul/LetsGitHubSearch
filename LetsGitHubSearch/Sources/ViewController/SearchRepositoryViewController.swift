@@ -93,7 +93,7 @@ extension SearchRepositoryViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let repository = self.repositories[indexPath.row]
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-    cell.textLabel?.text = repository.name
+    cell.textLabel?.text = repository.fullName
     return cell
   }
 }

@@ -88,9 +88,9 @@ final class SearchRepositoryViewControllerTests: XCTestCase {
 
     // when
     let repositories = [
-      Repository(name: "ReactorKit1"),
-      Repository(name: "ReactorKit2"),
-      Repository(name: "ReactorKit3"),
+      Repository(name: "ReactorKit1", fullName: "devxoul/ReactorKit1"),
+      Repository(name: "ReactorKit2", fullName: "younatics/ReactorKit2"),
+      Repository(name: "ReactorKit3", fullName: "cruisediary/ReactorKit3"),
     ]
     let searchResult = RepositorySearchResult(totalCount: 3, items: repositories)
     self.repositoryService.searchParameters?.completionHandler(.success(searchResult))
@@ -100,12 +100,12 @@ final class SearchRepositoryViewControllerTests: XCTestCase {
     XCTAssertEqual(numberOfRows, 3)
 
     let cell0 = self.viewController.tableView.cellForRow(at: IndexPath(row: 0, section: 0))
-    XCTAssertEqual(cell0?.textLabel?.text, "ReactorKit1")
+    XCTAssertEqual(cell0?.textLabel?.text, "devxoul/ReactorKit1")
 
     let cell1 = self.viewController.tableView.cellForRow(at: IndexPath(row: 1, section: 0))
-    XCTAssertEqual(cell1?.textLabel?.text, "ReactorKit2")
+    XCTAssertEqual(cell1?.textLabel?.text, "younatics/ReactorKit2")
 
     let cell2 = self.viewController.tableView.cellForRow(at: IndexPath(row: 2, section: 0))
-    XCTAssertEqual(cell2?.textLabel?.text, "ReactorKit3")
+    XCTAssertEqual(cell2?.textLabel?.text, "cruisediary/ReactorKit3")
   }
 }
