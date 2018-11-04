@@ -12,5 +12,5 @@ UIApplicationMain(
   CommandLine.argc,
   CommandLine.unsafeArgv,
   NSStringFromClass(UIApplication.self),
-  NSStringFromClass(AppDelegate.self)
+  NSStringFromClass(NSClassFromString("LetsGitHubSearchTests.TestAppDelegate") ?? AppDelegate.self)
 )
