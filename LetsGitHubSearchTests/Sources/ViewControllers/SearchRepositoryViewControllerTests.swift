@@ -34,6 +34,29 @@ final class SearchRepositoryViewControllerTests: XCTestCase {
     XCTAssertEqual(self.repositoryService.searchParameters?.keyword, "ReactorKit")
   }
 
+  func testActivityIndicatorView_isAnimating_whileSearching() {
+    // when
+    let searchBar = self.viewController.searchController.searchBar
+    searchBar.text = "ReactorKit"
+    searchBar.delegate?.searchBarSearchButtonClicked?(searchBar)
+
+    // then
+    XCTAssertTrue(self.viewController.activityIndicatorView.isAnimating)
+  }
+
+  func testActivityIndicatorView_isNotAnimating_afterSearching() {
+    // given
+    let searchBar = self.viewController.searchController.searchBar
+    searchBar.text = "ReactorKit"
+    searchBar.delegate?.searchBarSearchButtonClicked?(searchBar)
+
+    // when
+    self.repositoryService.searchParameters?.completionHandler(.failure(TestError()))
+
+    // then
+    XCTAssertFalse(self.viewController.activityIndicatorView.isAnimating)
+  }
+
   func testTableView_isHidden_whileSearching() {
     // when
     let searchBar = self.viewController.searchController.searchBar

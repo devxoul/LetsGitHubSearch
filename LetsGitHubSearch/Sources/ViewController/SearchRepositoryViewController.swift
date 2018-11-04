@@ -65,10 +65,10 @@ extension SearchRepositoryViewController: UISearchBarDelegate {
 
   private func setLoading(_ isLoading: Bool) {
     if isLoading {
-      self.activityIndicatorView.stopAnimating()
+      self.activityIndicatorView.startAnimating()
       self.tableView.isHidden = true
     } else {
-      self.activityIndicatorView.startAnimating()
+      self.activityIndicatorView.stopAnimating()
       self.tableView.isHidden = false
     }
   }
