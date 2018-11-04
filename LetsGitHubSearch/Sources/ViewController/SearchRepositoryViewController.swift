@@ -94,6 +94,14 @@ extension SearchRepositoryViewController: UITableViewDataSource {
     let repository = self.repositories[indexPath.row]
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
     cell.textLabel?.text = repository.fullName
+    cell.detailTextLabel?.text = self.formattedStargazersCount(repository.stargazersCount)
     return cell
+  }
+
+  private func formattedStargazersCount(_ count: Int) -> String? {
+    let formatter = NumberFormatter()
+    formatter.numberStyle = .decimal
+    guard let formattedCount = formatter.string(from: count as NSNumber) else { return nil }
+    return "⭐️ \(formattedCount)"
   }
 }
