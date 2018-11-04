@@ -6,20 +6,30 @@
 //  Copyright © 2018 Suyeol Jeon. All rights reserved.
 //
 
+import Alamofire
 import XCTest
 @testable import LetsGitHubSearch
 
 final class RepositoryServiceTests: XCTestCase {
-  func testSearch_includesSearchResult() {
+  func testSearch_callsSearchAPIWithParameters() {
     // given
-    let expectation = XCTestExpectation()
-    XCTWaiter().wait(for: [expectation], timeout: 10)
+    let sessionManager = SessionManagerStub()
+    let service = RepositoryService(sessionManager: sessionManager)
+
+    // when
+    service.search(keyword: "RxSwift", completionHandler: { _ in })
 
     // then
-    RepositoryService.search(keyword: "RxSwift") { result in
-      expectation.fulfill()
-      XCTAssertEqual(result.isSuccess, true)
-      XCTAssertEqual(result.value?.items.contains(where: { $0.name == "RxSwift" }), true)
-    }
+    let expectedURL = "https://api.github.com/search/repositories"
+    let actualURL = try? sessionManager.requestParameters?.url.asURL().absoluteString
+    XCTAssertEqual(actualURL, expectedURL)
+
+    let expectedMethod = HTTPMethod.get
+    let actualMethod = sessionManager.requestParameters?.method
+    XCTAssertEqual(actualMethod, expectedMethod)
+
+    let expectedParameters = ["q": "RxSwift"]
+    let actualParameters = sessionManager.requestParameters?.parameters as? [String: String]
+    XCTAssertEqual(actualParameters, expectedParameters)
   }
 }
