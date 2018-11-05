@@ -4,8 +4,8 @@ target 'LetsGitHubSearch' do
   use_frameworks!
 
   pod 'Alamofire'
+  pod 'Firebase/Core'
 
   target 'LetsGitHubSearchTests' do
-    inherit! :search_paths
   end
 end
