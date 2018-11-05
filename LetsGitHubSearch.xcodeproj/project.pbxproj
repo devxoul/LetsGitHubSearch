@@ -18,6 +18,7 @@
 		0306B8A4218DF38C00566407 /* RepositorySearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0306B8A3218DF38C00566407 /* RepositorySearchResult.swift */; };
 		0306B8AC218E0A9700566407 /* SearchRepositoryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0306B8A9218E0A9700566407 /* SearchRepositoryViewControllerTests.swift */; };
 		0306B8AE218E0B1300566407 /* RepositoryServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0306B8AD218E0B1300566407 /* RepositoryServiceTests.swift */; };
+		035CA46721908DB7005A7570 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 035CA46621908DB7005A7570 /* GoogleService-Info.plist */; };
 		03D50B32218F0073002C5620 /* SessionManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D50B31218F0073002C5620 /* SessionManagerProtocol.swift */; };
 		03D50B36218F013E002C5620 /* SessionManagerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D50B35218F013E002C5620 /* SessionManagerStub.swift */; };
 		03D50B39218F0A8E002C5620 /* RepositoryServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D50B38218F0A8E002C5620 /* RepositoryServiceStub.swift */; };
@@ -56,6 +57,7 @@
 		0306B8AD218E0B1300566407 /* RepositoryServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryServiceTests.swift; sourceTree = "<group>"; };
 		03490345218DE57100BD31FB /* LetsGitHubSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsGitHubSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03490359218DE57200BD31FB /* LetsGitHubSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LetsGitHubSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		035CA46621908DB7005A7570 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		03D50B31218F0073002C5620 /* SessionManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManagerProtocol.swift; sourceTree = "<group>"; };
 		03D50B35218F013E002C5620 /* SessionManagerStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManagerStub.swift; sourceTree = "<group>"; };
 		03D50B38218F0A8E002C5620 /* RepositoryServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryServiceStub.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				0306B889218DE8DC00566407 /* Info.plist */,
+				035CA46621908DB7005A7570 /* GoogleService-Info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0306B894218DE8DC00566407 /* LaunchScreen.storyboard in Resources */,
+				035CA46721908DB7005A7570 /* GoogleService-Info.plist in Resources */,
 				0306B893218DE8DC00566407 /* Assets.xcassets in Resources */,
 				0306B895218DE8DC00566407 /* Main.storyboard in Resources */,
 			);
