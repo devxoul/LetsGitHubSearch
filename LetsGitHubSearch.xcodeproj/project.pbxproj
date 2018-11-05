@@ -22,6 +22,8 @@
 		035CA46721908DB7005A7570 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 035CA46621908DB7005A7570 /* GoogleService-Info.plist */; };
 		035CA46921908E2C005A7570 /* FirebaseAppProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035CA46821908E2C005A7570 /* FirebaseAppProtocol.swift */; };
 		036DD31D21908F6D001F68D1 /* FirebaseAppStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036DD31C21908F6D001F68D1 /* FirebaseAppStub.swift */; };
+		036DD31F219091A8001F68D1 /* FirebaseAnalyticsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036DD31E219091A8001F68D1 /* FirebaseAnalyticsProtocol.swift */; };
+		036DD321219091E3001F68D1 /* FirebaseAnalyticsStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036DD320219091E3001F68D1 /* FirebaseAnalyticsStub.swift */; };
 		03D50B32218F0073002C5620 /* SessionManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D50B31218F0073002C5620 /* SessionManagerProtocol.swift */; };
 		03D50B36218F013E002C5620 /* SessionManagerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D50B35218F013E002C5620 /* SessionManagerStub.swift */; };
 		03D50B39218F0A8E002C5620 /* RepositoryServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D50B38218F0A8E002C5620 /* RepositoryServiceStub.swift */; };
@@ -65,6 +67,8 @@
 		035CA46621908DB7005A7570 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		035CA46821908E2C005A7570 /* FirebaseAppProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAppProtocol.swift; sourceTree = "<group>"; };
 		036DD31C21908F6D001F68D1 /* FirebaseAppStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAppStub.swift; sourceTree = "<group>"; };
+		036DD31E219091A8001F68D1 /* FirebaseAnalyticsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAnalyticsProtocol.swift; sourceTree = "<group>"; };
+		036DD320219091E3001F68D1 /* FirebaseAnalyticsStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAnalyticsStub.swift; sourceTree = "<group>"; };
 		03D50B31218F0073002C5620 /* SessionManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManagerProtocol.swift; sourceTree = "<group>"; };
 		03D50B35218F013E002C5620 /* SessionManagerStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManagerStub.swift; sourceTree = "<group>"; };
 		03D50B38218F0A8E002C5620 /* RepositoryServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryServiceStub.swift; sourceTree = "<group>"; };
@@ -257,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				035CA46821908E2C005A7570 /* FirebaseAppProtocol.swift */,
+				036DD31E219091A8001F68D1 /* FirebaseAnalyticsProtocol.swift */,
 				03D50B31218F0073002C5620 /* SessionManagerProtocol.swift */,
 				03D50B40218F1885002C5620 /* URLOpenerProtocol.swift */,
 			);
@@ -295,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				036DD31C21908F6D001F68D1 /* FirebaseAppStub.swift */,
+				036DD320219091E3001F68D1 /* FirebaseAnalyticsStub.swift */,
 				03D50B43218F18D1002C5620 /* URLOpenerStub.swift */,
 			);
 			path = Utils;
@@ -536,6 +542,7 @@
 				0306B89A218DEC3E00566407 /* main.swift in Sources */,
 				03D50B3D218F1110002C5620 /* AppDependency.swift in Sources */,
 				03D50B41218F1885002C5620 /* URLOpenerProtocol.swift in Sources */,
+				036DD31F219091A8001F68D1 /* FirebaseAnalyticsProtocol.swift in Sources */,
 				035CA46921908E2C005A7570 /* FirebaseAppProtocol.swift in Sources */,
 				0306B890218DE8DC00566407 /* AppDelegate.swift in Sources */,
 			);
@@ -548,6 +555,7 @@
 				036DD31D21908F6D001F68D1 /* FirebaseAppStub.swift in Sources */,
 				035CA46321908C5A005A7570 /* AppDelegateTests.swift in Sources */,
 				0306B8AC218E0A9700566407 /* SearchRepositoryViewControllerTests.swift in Sources */,
+				036DD321219091E3001F68D1 /* FirebaseAnalyticsStub.swift in Sources */,
 				03D50B3B218F0CD7002C5620 /* TestError.swift in Sources */,
 				03D50B44218F18D1002C5620 /* URLOpenerStub.swift in Sources */,
 				03D50B3F218F12F0002C5620 /* TestAppDelegate.swift in Sources */,

@@ -12,18 +12,22 @@ import XCTest
 final class SearchRepositoryViewControllerTests: XCTestCase {
   private var repositoryService: RepositoryServiceStub!
   private var urlOpener: URLOpenerStub!
+  private var firebaseAnalytics: FirebaseAnalyticsStub.Type!
   private var viewController: SearchRepositoryViewController!
 
   override func setUp() {
     super.setUp()
     self.repositoryService = RepositoryServiceStub()
     self.urlOpener = URLOpenerStub()
+    self.firebaseAnalytics = FirebaseAnalyticsStub.self
+    self.firebaseAnalytics.logEventParameters = nil
 
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     let identifier = "SearchRepositoryViewController"
     self.viewController = storyboard.instantiateViewController(withIdentifier: identifier) as? SearchRepositoryViewController
     self.viewController.repositoryService = self.repositoryService
     self.viewController.urlOpener = self.urlOpener
+    self.viewController.firebaseAnalytics = self.firebaseAnalytics
     self.viewController.loadViewIfNeeded()
   }
 
@@ -35,6 +39,18 @@ final class SearchRepositoryViewControllerTests: XCTestCase {
 
     // then
     XCTAssertEqual(self.repositoryService.searchParameters?.keyword, "ReactorKit")
+  }
+
+  func testSearchBar_whenSearchBarSearchButtonClicked_logAnalyticsSearchEvent() {
+    // when
+    let searchBar = self.viewController.searchController.searchBar
+    searchBar.text = "Let'Swift 18"
+    searchBar.delegate?.searchBarSearchButtonClicked?(searchBar)
+
+    // then
+    let parameters = self.firebaseAnalytics.logEventParameters
+    XCTAssertEqual(parameters?.name, "search")
+    XCTAssertEqual(parameters?.parameters as? [String: String], ["keyword": "Let'Swift 18"])
   }
 
   func testActivityIndicatorView_isAnimating_whileSearching() {

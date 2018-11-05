@@ -17,6 +17,7 @@ final class AppDelegateTests: XCTestCase {
 
     let dependency = AppDependency(
       firebaseApp: firebaseApp,
+      firebaseAnalytics: FirebaseAnalyticsStub.self,
       repositoryService: RepositoryServiceStub(),
       urlOpener: URLOpenerStub()
     )

@@ -11,6 +11,7 @@ import Firebase
 
 struct AppDependency {
   let firebaseApp: FirebaseAppProtocol.Type
+  let firebaseAnalytics: FirebaseAnalyticsProtocol.Type
   let repositoryService: RepositoryServiceProtocol
   let urlOpener: URLOpenerProtocol
 }
@@ -23,6 +24,7 @@ extension AppDependency {
 
     return AppDependency(
       firebaseApp: FirebaseApp.self,
+      firebaseAnalytics: Firebase.Analytics.self,
       repositoryService: repositoryService,
       urlOpener: urlOpener
     )
