@@ -18,7 +18,10 @@
 		0306B8A4218DF38C00566407 /* RepositorySearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0306B8A3218DF38C00566407 /* RepositorySearchResult.swift */; };
 		0306B8AC218E0A9700566407 /* SearchRepositoryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0306B8A9218E0A9700566407 /* SearchRepositoryViewControllerTests.swift */; };
 		0306B8AE218E0B1300566407 /* RepositoryServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0306B8AD218E0B1300566407 /* RepositoryServiceTests.swift */; };
+		035CA46321908C5A005A7570 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035CA46221908C5A005A7570 /* AppDelegateTests.swift */; };
 		035CA46721908DB7005A7570 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 035CA46621908DB7005A7570 /* GoogleService-Info.plist */; };
+		035CA46921908E2C005A7570 /* FirebaseAppProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035CA46821908E2C005A7570 /* FirebaseAppProtocol.swift */; };
+		036DD31D21908F6D001F68D1 /* FirebaseAppStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036DD31C21908F6D001F68D1 /* FirebaseAppStub.swift */; };
 		03D50B32218F0073002C5620 /* SessionManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D50B31218F0073002C5620 /* SessionManagerProtocol.swift */; };
 		03D50B36218F013E002C5620 /* SessionManagerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D50B35218F013E002C5620 /* SessionManagerStub.swift */; };
 		03D50B39218F0A8E002C5620 /* RepositoryServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D50B38218F0A8E002C5620 /* RepositoryServiceStub.swift */; };
@@ -27,6 +30,7 @@
 		03D50B3F218F12F0002C5620 /* TestAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D50B3E218F12F0002C5620 /* TestAppDelegate.swift */; };
 		03D50B41218F1885002C5620 /* URLOpenerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D50B40218F1885002C5620 /* URLOpenerProtocol.swift */; };
 		03D50B44218F18D1002C5620 /* URLOpenerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D50B43218F18D1002C5620 /* URLOpenerStub.swift */; };
+		25A5D24042903EEEF081969E /* Pods_LetsGitHubSearch_LetsGitHubSearchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5EC442EC30CD655510A977 /* Pods_LetsGitHubSearch_LetsGitHubSearchTests.framework */; };
 		7DEDB08F26F2791CAB6CFDE6 /* Pods_LetsGitHubSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 480F7FE20F7BB41D7F915684 /* Pods_LetsGitHubSearch.framework */; };
 		BF481774DC897864A2C3D9EF /* Pods_LetsGitHubSearchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BA57C27E62C89C4F9D61B6A /* Pods_LetsGitHubSearchTests.framework */; };
 /* End PBXBuildFile section */
@@ -57,7 +61,10 @@
 		0306B8AD218E0B1300566407 /* RepositoryServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryServiceTests.swift; sourceTree = "<group>"; };
 		03490345218DE57100BD31FB /* LetsGitHubSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsGitHubSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03490359218DE57200BD31FB /* LetsGitHubSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LetsGitHubSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		035CA46221908C5A005A7570 /* AppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
 		035CA46621908DB7005A7570 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		035CA46821908E2C005A7570 /* FirebaseAppProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAppProtocol.swift; sourceTree = "<group>"; };
+		036DD31C21908F6D001F68D1 /* FirebaseAppStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAppStub.swift; sourceTree = "<group>"; };
 		03D50B31218F0073002C5620 /* SessionManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManagerProtocol.swift; sourceTree = "<group>"; };
 		03D50B35218F013E002C5620 /* SessionManagerStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManagerStub.swift; sourceTree = "<group>"; };
 		03D50B38218F0A8E002C5620 /* RepositoryServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryServiceStub.swift; sourceTree = "<group>"; };
@@ -67,11 +74,14 @@
 		03D50B40218F1885002C5620 /* URLOpenerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLOpenerProtocol.swift; sourceTree = "<group>"; };
 		03D50B43218F18D1002C5620 /* URLOpenerStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLOpenerStub.swift; sourceTree = "<group>"; };
 		163089C6410E1FDAFD4A7F9C /* Pods-LetsGitHubSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsGitHubSearch.release.xcconfig"; path = "Target Support Files/Pods-LetsGitHubSearch/Pods-LetsGitHubSearch.release.xcconfig"; sourceTree = "<group>"; };
+		1A2827596977A951F8F7A789 /* Pods-LetsGitHubSearch-LetsGitHubSearchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsGitHubSearch-LetsGitHubSearchTests.release.xcconfig"; path = "Target Support Files/Pods-LetsGitHubSearch-LetsGitHubSearchTests/Pods-LetsGitHubSearch-LetsGitHubSearchTests.release.xcconfig"; sourceTree = "<group>"; };
 		480F7FE20F7BB41D7F915684 /* Pods_LetsGitHubSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LetsGitHubSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68F3104C69242DF6D21DD1C9 /* Pods-LetsGitHubSearchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsGitHubSearchTests.release.xcconfig"; path = "Target Support Files/Pods-LetsGitHubSearchTests/Pods-LetsGitHubSearchTests.release.xcconfig"; sourceTree = "<group>"; };
 		6D5B685C4503DE77C1985DD3 /* Pods-LetsGitHubSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsGitHubSearch.debug.xcconfig"; path = "Target Support Files/Pods-LetsGitHubSearch/Pods-LetsGitHubSearch.debug.xcconfig"; sourceTree = "<group>"; };
+		6D5EC442EC30CD655510A977 /* Pods_LetsGitHubSearch_LetsGitHubSearchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LetsGitHubSearch_LetsGitHubSearchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BA57C27E62C89C4F9D61B6A /* Pods_LetsGitHubSearchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LetsGitHubSearchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		904DF9EEF78C6BF28C9CDEE8 /* Pods-LetsGitHubSearchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsGitHubSearchTests.debug.xcconfig"; path = "Target Support Files/Pods-LetsGitHubSearchTests/Pods-LetsGitHubSearchTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9779067E56675C9D98DA9853 /* Pods-LetsGitHubSearch-LetsGitHubSearchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsGitHubSearch-LetsGitHubSearchTests.debug.xcconfig"; path = "Target Support Files/Pods-LetsGitHubSearch-LetsGitHubSearchTests/Pods-LetsGitHubSearch-LetsGitHubSearchTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +98,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF481774DC897864A2C3D9EF /* Pods_LetsGitHubSearchTests.framework in Frameworks */,
+				25A5D24042903EEEF081969E /* Pods_LetsGitHubSearch_LetsGitHubSearchTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				03D50B33218F011B002C5620 /* Mocks */,
+				035CA46121908C4C005A7570 /* Entry */,
 				0306B8AA218E0A9700566407 /* Services */,
 				0306B8A8218E0A9700566407 /* ViewControllers */,
 			);
@@ -233,9 +245,18 @@
 			path = LetsGitHubSearchTests;
 			sourceTree = "<group>";
 		};
+		035CA46121908C4C005A7570 /* Entry */ = {
+			isa = PBXGroup;
+			children = (
+				035CA46221908C5A005A7570 /* AppDelegateTests.swift */,
+			);
+			path = Entry;
+			sourceTree = "<group>";
+		};
 		03D50B30218F0068002C5620 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				035CA46821908E2C005A7570 /* FirebaseAppProtocol.swift */,
 				03D50B31218F0073002C5620 /* SessionManagerProtocol.swift */,
 				03D50B40218F1885002C5620 /* URLOpenerProtocol.swift */,
 			);
@@ -273,6 +294,7 @@
 		03D50B42218F18C8002C5620 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				036DD31C21908F6D001F68D1 /* FirebaseAppStub.swift */,
 				03D50B43218F18D1002C5620 /* URLOpenerStub.swift */,
 			);
 			path = Utils;
@@ -285,6 +307,8 @@
 				163089C6410E1FDAFD4A7F9C /* Pods-LetsGitHubSearch.release.xcconfig */,
 				904DF9EEF78C6BF28C9CDEE8 /* Pods-LetsGitHubSearchTests.debug.xcconfig */,
 				68F3104C69242DF6D21DD1C9 /* Pods-LetsGitHubSearchTests.release.xcconfig */,
+				9779067E56675C9D98DA9853 /* Pods-LetsGitHubSearch-LetsGitHubSearchTests.debug.xcconfig */,
+				1A2827596977A951F8F7A789 /* Pods-LetsGitHubSearch-LetsGitHubSearchTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -294,6 +318,7 @@
 			children = (
 				480F7FE20F7BB41D7F915684 /* Pods_LetsGitHubSearch.framework */,
 				7BA57C27E62C89C4F9D61B6A /* Pods_LetsGitHubSearchTests.framework */,
+				6D5EC442EC30CD655510A977 /* Pods_LetsGitHubSearch_LetsGitHubSearchTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -328,6 +353,7 @@
 				03490355218DE57200BD31FB /* Sources */,
 				03490356218DE57200BD31FB /* Frameworks */,
 				03490357218DE57200BD31FB /* Resources */,
+				7FAC05D9A9002C2E3C30E1AF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -436,11 +462,37 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LetsGitHubSearchTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-LetsGitHubSearch-LetsGitHubSearchTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7FAC05D9A9002C2E3C30E1AF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LetsGitHubSearch-LetsGitHubSearchTests/Pods-LetsGitHubSearch-LetsGitHubSearchTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LetsGitHubSearch-LetsGitHubSearchTests/Pods-LetsGitHubSearch-LetsGitHubSearchTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F2F0C4A7DD2D1A0577A7C7D2 /* [CP] Embed Pods Frameworks */ = {
@@ -484,6 +536,7 @@
 				0306B89A218DEC3E00566407 /* main.swift in Sources */,
 				03D50B3D218F1110002C5620 /* AppDependency.swift in Sources */,
 				03D50B41218F1885002C5620 /* URLOpenerProtocol.swift in Sources */,
+				035CA46921908E2C005A7570 /* FirebaseAppProtocol.swift in Sources */,
 				0306B890218DE8DC00566407 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,6 +545,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				036DD31D21908F6D001F68D1 /* FirebaseAppStub.swift in Sources */,
+				035CA46321908C5A005A7570 /* AppDelegateTests.swift in Sources */,
 				0306B8AC218E0A9700566407 /* SearchRepositoryViewControllerTests.swift in Sources */,
 				03D50B3B218F0CD7002C5620 /* TestError.swift in Sources */,
 				03D50B44218F18D1002C5620 /* URLOpenerStub.swift in Sources */,
@@ -688,7 +743,7 @@
 		};
 		03490366218DE57200BD31FB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 904DF9EEF78C6BF28C9CDEE8 /* Pods-LetsGitHubSearchTests.debug.xcconfig */;
+			baseConfigurationReference = 9779067E56675C9D98DA9853 /* Pods-LetsGitHubSearch-LetsGitHubSearchTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -710,7 +765,7 @@
 		};
 		03490367218DE57200BD31FB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 68F3104C69242DF6D21DD1C9 /* Pods-LetsGitHubSearchTests.release.xcconfig */;
+			baseConfigurationReference = 1A2827596977A951F8F7A789 /* Pods-LetsGitHubSearch-LetsGitHubSearchTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

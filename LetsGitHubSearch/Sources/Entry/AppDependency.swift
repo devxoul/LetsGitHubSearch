@@ -7,8 +7,10 @@
 //
 
 import Alamofire
+import Firebase
 
 struct AppDependency {
+  let firebaseApp: FirebaseAppProtocol.Type
   let repositoryService: RepositoryServiceProtocol
   let urlOpener: URLOpenerProtocol
 }
@@ -20,6 +22,7 @@ extension AppDependency {
     let urlOpener = UIApplication.shared
 
     return AppDependency(
+      firebaseApp: FirebaseApp.self,
       repositoryService: repositoryService,
       urlOpener: urlOpener
     )
