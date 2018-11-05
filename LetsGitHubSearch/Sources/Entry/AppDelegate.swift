@@ -26,9 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     self.appDependency.firebaseApp.configure()
 
     if let rootViewController = self.rootViewController() {
-      rootViewController.repositoryService = self.appDependency.repositoryService
-      rootViewController.urlOpener = self.appDependency.urlOpener
-      rootViewController.firebaseAnalytics = self.appDependency.firebaseAnalytics
+      rootViewController.dependency = self.appDependency.searchRepositoryViewControllerDependency
     }
     return true
   }

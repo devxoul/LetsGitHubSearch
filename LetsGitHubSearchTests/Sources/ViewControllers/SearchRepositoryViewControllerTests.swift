@@ -25,9 +25,11 @@ final class SearchRepositoryViewControllerTests: XCTestCase {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     let identifier = "SearchRepositoryViewController"
     self.viewController = storyboard.instantiateViewController(withIdentifier: identifier) as? SearchRepositoryViewController
-    self.viewController.repositoryService = self.repositoryService
-    self.viewController.urlOpener = self.urlOpener
-    self.viewController.firebaseAnalytics = self.firebaseAnalytics
+    self.viewController.dependency = .init(
+      repositoryService: self.repositoryService,
+      urlOpener: self.urlOpener,
+      firebaseAnalytics: self.firebaseAnalytics
+    )
     self.viewController.loadViewIfNeeded()
   }
 

@@ -11,9 +11,12 @@ import UIKit
 import Alamofire
 
 class SearchRepositoryViewController: UIViewController {
-  var repositoryService: RepositoryServiceProtocol!
-  var urlOpener: URLOpenerProtocol!
-  var firebaseAnalytics: FirebaseAnalyticsProtocol.Type!
+  struct Dependency {
+    let repositoryService: RepositoryServiceProtocol!
+    let urlOpener: URLOpenerProtocol!
+    let firebaseAnalytics: FirebaseAnalyticsProtocol.Type!
+  }
+  var dependency: Dependency!
 
   let searchController = UISearchController(searchResultsController: nil)
 
@@ -39,7 +42,7 @@ extension SearchRepositoryViewController: UISearchBarDelegate {
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
     if let text = searchBar.text {
       self.search(keyword: text)
-      self.firebaseAnalytics.logEvent("search", parameters: ["keyword": text])
+      self.dependency.firebaseAnalytics.logEvent("search", parameters: ["keyword": text])
     }
     self.searchController.dismiss(animated: true, completion: nil)
   }
@@ -48,7 +51,7 @@ extension SearchRepositoryViewController: UISearchBarDelegate {
     self.cancelPreviousSearchRequest()
     self.setLoading(true)
 
-    self.currentSearchRequest = self.repositoryService.search(keyword: keyword) { [weak self] result in
+    self.currentSearchRequest = self.dependency.repositoryService.search(keyword: keyword) { [weak self] result in
       guard let self = self else { return }
       self.setLoading(false)
 
@@ -114,6 +117,6 @@ extension SearchRepositoryViewController: UITableViewDelegate {
     let repository = self.repositories[indexPath.row]
     let urlString = "https://github.com/\(repository.fullName)"
     guard let url = URL(string: urlString) else { return }
-    self.urlOpener.open(url, options: [:], completionHandler: nil)
+    self.dependency.urlOpener.open(url, options: [:], completionHandler: nil)
   }
 }
